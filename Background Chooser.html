@@ -1,0 +1,54 @@
+<html>
+<head>
+       <title>Background Chooser</title>
+       <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script> 
+       <script type="text/javascript">
+          $(document).ready(function(){
+             $('#main_box').click(function(){ 
+                //comment this out when you have figured out what event.stopPropagation is used for
+                $(this).css('background-image','none');
+             })
+             $('.mini_boxes').click(function(event){
+                event.stopPropagation();
+                var $temp = $(this).attr('src');
+                $('#main_box').css('background-image','url('+$temp+')');
+                $('img').css('border','none');
+                $(this).css('border','2px solid yellow');
+             });
+          });
+      </script>
+      <style>
+            #main_box {
+                background-color: gray;
+                background-repeat: no-repeat;
+                background-size: cover;
+                padding: 10px;
+            }
+            #main_box img {
+                display: block;
+                width: 200px;
+                height: 100px;
+                margin: 10px 0 15px 10px;
+            }
+            h1 {
+                text-align: center;
+                margin: 30px;
+                font-family: Verdana;
+            }
+            .dec{
+                border: 2px solid yellow;
+            }
+      </style>
+</head>
+<body>
+    <div class="container">
+      <h1>Background Chooser</h1>
+      <div id="main_box">
+          <img src="img/background1.gif" class="mini_boxes">
+          <img src="img/background2.gif" class="mini_boxes">
+          <img src="img/background3.gif" class="mini_boxes">
+          <img src="img/background4.gif" class="mini_boxes">
+      </div>
+    </div>
+</body>
+</html>
